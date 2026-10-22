@@ -1829,7 +1829,7 @@ document.querySelectorAll('[data-page="import"]').forEach(b=>b.addEventListener(
 if(location.hash==='#import')loadLog();
 
 /* ===== Đang online & Tổng truy cập (Firebase Realtime Database) ===== */
-const FB_CFG=null;// chưa có Firebase riêng cho Trạm Tấu
+const FB_CFG={databaseURL:'https://tramtau-default-rtdb.firebaseio.com'};
 (function liveStats(){
   const set=(k,n)=>document.querySelectorAll('[data-live="'+k+'"]').forEach(e=>{e.textContent=nf.format(n)});
   const show=()=>{const a=document.getElementById('liveBar'),b=document.getElementById('livePill');if(a)a.hidden=false;if(b)b.hidden=false};
