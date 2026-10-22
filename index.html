@@ -671,8 +671,9 @@ body::before{display:none}
 }
 
 /* dải thông báo */
-.notice{position:relative;top:auto;height:38px;background:var(--paper)}
-.nt-badge{background:var(--son);color:#fff;border-right:0;padding:0 16px 0 32px}
+.notice{position:relative;top:auto;height:38px;background:var(--paper);margin:14px auto 0;width:min(calc(100% - 64px),calc(var(--wrap) - 64px));border:1px solid var(--rule);border-radius:10px}
+@media(max-width:1023px){.notice{width:calc(100% - 32px)}}
+.nt-badge{background:var(--son);color:#fff;border-right:0;padding:0 16px 0 18px}
 .nt-badge svg{color:#fff}
 .nt-text{font-weight:500;color:var(--ink-2)}
 .notice .livepill{background:var(--paper)}
