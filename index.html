@@ -1205,7 +1205,7 @@ const INITIAL_UNITS=[
 {"STT":"41","Tên đơn vị":"Chi bộ trường PTDTBT TH&THCS Pá Hu","Tổng sl đảng viên (1)":"0","Số lượng ĐV đã chuyển sinh hoạt đảng tạm thời (4)":"0","Số lượng được miễn giảm ĐP (5)":"0","Chưa duyệt (6)":"0","Đã duyệt, chưa nộp (7)":"0","Đã duyệt, đã nộp (8)":"0","Số đảng viên chưa có hồ sơ (9)":"0","Tổng tiền theo hồ sơ đã khai báo":"0","Tổng tiền đã nộp":"0","Tỷ lệ hoàn thành\n đảng phí thực tế":"0,00%"},
 {"STT":"42","Tên đơn vị":"Chi bộ trường PTDTBT TH&THCS Trạm Tấu","Tổng sl đảng viên (1)":"0","Số lượng ĐV đã chuyển sinh hoạt đảng tạm thời (4)":"0","Số lượng được miễn giảm ĐP (5)":"0","Chưa duyệt (6)":"0","Đã duyệt, chưa nộp (7)":"0","Đã duyệt, đã nộp (8)":"0","Số đảng viên chưa có hồ sơ (9)":"0","Tổng tiền theo hồ sơ đã khai báo":"0","Tổng tiền đã nộp":"0","Tỷ lệ hoàn thành\n đảng phí thực tế":"0,00%"},
 {"STT":"43","Tên đơn vị":"Chi bộ trường mầm non Hoa Ban","Tổng sl đảng viên (1)":"0","Số lượng ĐV đã chuyển sinh hoạt đảng tạm thời (4)":"0","Số lượng được miễn giảm ĐP (5)":"0","Chưa duyệt (6)":"0","Đã duyệt, chưa nộp (7)":"0","Đã duyệt, đã nộp (8)":"0","Số đảng viên chưa có hồ sơ (9)":"0","Tổng tiền theo hồ sơ đã khai báo":"0","Tổng tiền đã nộp":"0","Tỷ lệ hoàn thành\n đảng phí thực tế":"0,00%"},
-{"STT":"44","Tên đơn vị":"Đảng bô các cơ quan đảng","Tổng sl đảng viên (1)":"1","Số lượng ĐV đã chuyển sinh hoạt đảng tạm thời (4)":"0","Số lượng được miễn giảm ĐP (5)":"0","Chưa duyệt (6)":"0","Đã duyệt, chưa nộp (7)":"0","Đã duyệt, đã nộp (8)":"1","Số đảng viên chưa có hồ sơ (9)":"0","Tổng tiền theo hồ sơ đã khai báo":"163.000","Tổng tiền đã nộp":"163.000","Tỷ lệ hoàn thành\n đảng phí thực tế":"100,00%"},
+
 {"STT":"45","Tên đơn vị":"Đảng bộ Uỷ ban nhân dân","Tổng sl đảng viên (1)":"0","Số lượng ĐV đã chuyển sinh hoạt đảng tạm thời (4)":"0","Số lượng được miễn giảm ĐP (5)":"0","Chưa duyệt (6)":"0","Đã duyệt, chưa nộp (7)":"0","Đã duyệt, đã nộp (8)":"0","Số đảng viên chưa có hồ sơ (9)":"0","Tổng tiền theo hồ sơ đã khai báo":"0","Tổng tiền đã nộp":"0","Tỷ lệ hoàn thành\n đảng phí thực tế":"0,00%"}
 ];// số liệu dự phòng từ tệp Excel ngày 22/10/2026; khi nối Google Sheet sẽ tự thay bằng số liệu mới
 const KEYS={stt:'STT',name:'Tên đơn vị',members:'Tổng sl đảng viên (1)',pending:'Chưa duyệt (6)',paidCount:'Đã duyệt, đã nộp (8)',unfiled:'Số đảng viên chưa có hồ sơ (9)',declared:'Tổng tiền theo hồ sơ đã khai báo',paid:'Tổng tiền đã nộp',progress:'Tỷ lệ hoàn thành\n đảng phí thực tế',exempt:'Số lượng được miễn giảm ĐP (5)',moved:'Số lượng ĐV đã chuyển sinh hoạt đảng tạm thời (4)',approved:'Đã duyệt, chưa nộp (7)'};
@@ -1248,7 +1248,7 @@ const curKey=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMont
 const viewingPast=()=>!!(viewKey&&viewKey!==curKey()&&msnap[viewKey]);
 /* bỏ đơn vị toàn số 0 (không có đảng viên, hồ sơ, tiền) khỏi mọi bảng, biểu đồ, báo cáo */
 const hasData=r=>['members','exempt','moved','pending','approved','paidCount','unfiled','declared','paid'].some(k=>v(r,k)>0);
-function applyView(){const src=(viewingPast()?msnap[viewKey].rows:liveUnits).filter(hasData);
+function applyView(){const src=(viewingPast()?msnap[viewKey].rows:liveUnits).filter(r=>hasData(r)&&nkey(nm(r))!=='dangbocaccoquandang');
   units=[...src].sort((a,b)=>v(b,'progress')-v(a,'progress')||v(b,'paid')-v(a,'paid'));rankOf=new Map();units.forEach((r,i)=>rankOf.set(r,i+1))}
 function renderBanner(){let b=$('#viewBanner');if(!b){b=document.createElement('div');b.id='viewBanner';const o=$('#overview');o.insertBefore(b,o.firstChild)}
   if(!viewingPast()){b.style.display='none';return}
@@ -1648,7 +1648,7 @@ $('#savePayment').onclick=()=>{
 /* export + refresh */
 
 /* ===== Tạo báo cáo ===== */
-function reportUnits(k){const src=((k&&k!==curKey()&&msnap[k])?msnap[k].rows:liveUnits).filter(hasData);return [...src].sort((a,b)=>v(b,'progress')-v(a,'progress')||v(b,'paid')-v(a,'paid'))}
+function reportUnits(k){const src=((k&&k!==curKey()&&msnap[k])?msnap[k].rows:liveUnits).filter(r=>hasData(r)&&nkey(nm(r))!=='dangbocaccoquandang');return [...src].sort((a,b)=>v(b,'progress')-v(a,'progress')||v(b,'paid')-v(a,'paid'))}
 function reportHTML(k){
   const U=reportUnits(k),y=+k.slice(0,4),m=+k.slice(5);
   const T=U.reduce((a,r)=>{['members','exempt','due','paidCount','pending','noRecord','approved','paid','declared'].forEach(x=>a[x]=(a[x]||0)+v(r,x));return a},{});
