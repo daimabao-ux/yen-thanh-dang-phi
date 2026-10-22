@@ -638,8 +638,9 @@ body::before{display:none}
 :focus-visible{outline-color:var(--son)}
 
 /* thanh trên cùng */
-.bar{position:sticky;top:0;left:auto;bottom:auto;width:auto;height:auto;color:var(--ink);background:#fff;border-right:0;border-bottom:1px solid var(--rule);box-shadow:none;overflow:visible}
-.bar::before{content:'';position:absolute;left:0;right:0;top:0;bottom:auto;width:auto;height:3px;transform:none;opacity:1;background:var(--son)}
+.bar{position:sticky;top:8px;left:auto;bottom:auto;width:min(calc(100% - 64px),calc(var(--wrap) - 64px));margin:12px auto 0;height:auto;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:12px;box-shadow:none;overflow:visible}
+@media(max-width:1023px){.bar{width:calc(100% - 32px)}}
+.bar::before{content:'';position:absolute;left:0;right:0;top:0;bottom:auto;width:auto;height:3px;transform:none;opacity:1;background:var(--son);border-radius:12px 12px 0 0}
 .brand{border:0;padding:0;margin:0}
 .seal{width:40px;height:40px;border-radius:10px;box-shadow:0 0 0 1px var(--rule)}
 .brand b{font:800 15px/1.2 var(--sans);color:var(--son-d);background:none;-webkit-text-fill-color:currentColor;filter:none;letter-spacing:.04em}
@@ -649,7 +650,7 @@ body::before{display:none}
 .bar #reportBtn{background:var(--son);border-color:var(--son);color:#fff}
 .bar #reportBtn:hover{background:var(--son-l);filter:none}
 @media(min-width:1024px){
-  .bar .wrap{flex-direction:row;align-items:center;gap:24px;height:var(--barh);padding:3px 32px 0;max-width:var(--wrap)}
+  .bar .wrap{flex-direction:row;align-items:center;gap:24px;height:var(--barh);padding:3px 18px 0;max-width:none}
   .brand{flex:none}
   .tabs{flex-direction:row;gap:2px;margin:0 auto;padding:4px;background:var(--giay);border:1px solid var(--rule);border-radius:12px}
   .tabs::before{display:none}
@@ -671,7 +672,7 @@ body::before{display:none}
 }
 
 /* dải thông báo */
-.notice{position:relative;top:auto;height:38px;background:var(--paper);margin:14px auto 0;width:min(calc(100% - 64px),calc(var(--wrap) - 64px));border:1px solid var(--rule);border-radius:10px}
+.notice{position:relative;top:auto;height:38px;background:var(--paper);margin:10px auto 0;width:min(calc(100% - 64px),calc(var(--wrap) - 64px));border:1px solid var(--rule);border-radius:10px}
 @media(max-width:1023px){.notice{width:calc(100% - 32px)}}
 .nt-badge{background:var(--son);color:#fff;border-right:0;padding:0 16px 0 18px}
 .nt-badge svg{color:#fff}
