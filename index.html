@@ -842,6 +842,91 @@ th{background:#f8fafc;letter-spacing:.06em}
   #dan-dau .podium{grid-auto-rows:auto}
 }
 @media(max-width:420px){.kpis{grid-template-columns:1fr 1fr}}
+
+/* ===== Bảng màu chuyên nghiệp, sinh động (đỏ cờ – vàng – xanh lam – xanh ngọc) ===== */
+:root{
+  --son:#c8102e;--son-d:#9b0c22;--son-dd:#6e0817;--son-l:#e11d48;
+  --vang:#f5b301;--vang-l:#ffd75e;--vang-bg:#fff6d6;
+  --ngoc:#16a34a;--ngoc-bg:#dcfce7;
+  --ho:#d97706;--ho-bg:#fef3c7;
+  --do:#dc2626;--do-bg:#fee2e2;
+  --xanh:#2563eb;--xanh-bg:#dbeafe;--tim:#7c3aed;--tim-bg:#ede9fe;--lam:#0e7490;--lam-bg:#cffafe;
+  --giay:#f3f5fb;--paper:#fff;--ink:#0f172a;--ink-2:#334155;--muted:#64748b;--rule:#e2e8f0;
+  --sh:0 1px 2px #0f172a0d,0 10px 28px -14px #1e3a8a38;
+}
+body{background:linear-gradient(180deg,#fff1ee 0,#f6f3fb 280px,#eef3fb 640px,#eef3fb 100%) fixed}
+.bar::before{height:4px;background:linear-gradient(90deg,#c8102e 0,#e11d48 35%,#f5b301 100%)}
+.bar{box-shadow:0 8px 24px -16px #c8102e66}
+.brand b{background:linear-gradient(90deg,#9b0c22,#c8102e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.tab[aria-current=page]{background:linear-gradient(135deg,#fff,#fff1f2);box-shadow:0 2px 8px #c8102e24;color:var(--son-d)}
+.tab[aria-current=page] svg{color:var(--son)}
+.tab:hover{background:#fff4f4}
+.bar #reportBtn{background:linear-gradient(135deg,#e11d48,#c8102e 60%,#9b0c22);border-color:#9b0c22;box-shadow:0 6px 14px -6px #c8102e99}
+.bar #reportBtn:hover{background:linear-gradient(135deg,#f43f5e,#d90f30 60%,#b00d27)}
+.notice{background:linear-gradient(90deg,#fff7e0,#fff);border-color:#f3dc9a}
+.nt-badge{background:linear-gradient(135deg,#e11d48,#9b0c22)}
+.nt-text{color:#7c2d12}
+.ovhead h1{background:linear-gradient(90deg,#0f172a,#9b0c22);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.eyebrow{color:var(--son);font-weight:700}
+.heroline>div:nth-child(1){background:#eff6ff;border-color:#bfdbfe}
+.heroline>div:nth-child(2){background:#fff7ed;border-color:#fed7aa}
+.heroline>div:nth-child(3){background:#f0fdf4;border-color:#bbf7d0}
+.heroline>div:nth-child(4){background:#faf5ff;border-color:#e9d5ff}
+/* thẻ KPI */
+.stat{border:1px solid var(--kbd,var(--rule));background:linear-gradient(145deg,var(--kb) 0,#fff 70%)}
+.stat::after{display:block;height:4px;background:var(--k)}
+.stat .ico,.stat.k3 .ico,.stat.k4 .ico{background:var(--k);color:#fff;box-shadow:0 6px 14px -6px var(--k)}
+.stat strong{color:var(--kt,var(--ink))}
+.stat small b,.stat.k3 small b{color:var(--k)}
+.stat.k1{--k:#c8102e;--kb:#fff1f2;--kbd:#fecdd3;--kt:#9b0c22}
+.stat.k2{--k:#2563eb;--kb:#eff6ff;--kbd:#bfdbfe;--kt:#1d4ed8}
+.stat.k3{--k:#16a34a;--kb:#f0fdf4;--kbd:#bbf7d0;--kt:#15803d}
+.stat.k4{--k:#7c3aed;--kb:#faf5ff;--kbd:#ddd6fe;--kt:#6d28d9}
+/* khung */
+.panel,.dpanel{border-color:#dde4f0;background:#fff}
+.glabel{color:var(--son)}
+.glabel::after{background:linear-gradient(90deg,#f3c4cc,transparent)}
+.ph h2{color:#0f172a}
+.ph h2::before{display:block;content:'';width:4px;height:15px;border-radius:2px;background:linear-gradient(180deg,var(--son),var(--vang));margin-right:9px;display:inline-block;vertical-align:-2px}
+.tt-text b{color:var(--son-d)}
+.loadnote.warn{background:#fff6d6;border-color:#f5d56a;color:#7c4a03}
+/* tiến trình */
+.fn-bar i{background:linear-gradient(90deg,#93c5fd,#60a5fa)}
+.fn-row.s2 .fn-bar i{background:linear-gradient(90deg,#60a5fa,#2563eb)}
+.fn-row.s3 .fn-bar i{background:linear-gradient(90deg,#2563eb,#1d4ed8)}
+.fn-row.s4 .fn-bar i{background:linear-gradient(90deg,#22c55e,#15803d)}
+.mr-track i{background:linear-gradient(90deg,#22c55e,#15803d)}
+.mr-cmp{background:#f0fdf4}
+#splitlegend span{background:linear-gradient(180deg,color-mix(in srgb,var(--c) 9%,#fff),#fff)}
+.chase .rk{background:#fee2e2;color:#b91c1c}
+.chase .bar2 i{background:linear-gradient(90deg,#f87171,#dc2626)}
+/* top 3 */
+#dan-dau .podium .step.s1{--bar:#f5b301;border-color:#f5d56a;background:linear-gradient(135deg,#fffbeb,#fff)}
+#dan-dau .podium .step.s2{--bar:#2563eb;background:linear-gradient(135deg,#eff6ff,#fff);border-color:#bfdbfe}
+#dan-dau .podium .step.s3{--bar:#16a34a;background:linear-gradient(135deg,#f0fdf4,#fff);border-color:#bbf7d0}
+.rk.m1{background:linear-gradient(135deg,#f5b301,#d97706);color:#fff}
+.rk.m2{background:linear-gradient(135deg,#60a5fa,#2563eb);color:#fff}
+.rk.m3{background:linear-gradient(135deg,#4ade80,#16a34a);color:#fff}
+/* biểu đồ cột */
+.cb.complete{background:linear-gradient(180deg,#4ade80,#16a34a)}
+.cb.partial{background:linear-gradient(180deg,#fbbf24,#f59e0b)}
+.cb.empty{background:#cbd5e1}
+.track i.partial{background:linear-gradient(90deg,#fbbf24,#f59e0b)}
+.mcol i{background:#c7d2fe}
+.mcol:hover i{background:#818cf8}
+.mcol.cur i{background:#fbbf24}
+.mcol.sel i{background:linear-gradient(180deg,#e11d48,#c8102e)}
+.mkpi div{background:linear-gradient(135deg,color-mix(in srgb,var(--c,#c8102e) 8%,#fff),#fff)}
+/* bảng */
+th{background:linear-gradient(180deg,#eef2ff,#e8edfb);color:#1e3a8a}
+tbody tr:hover td{background:#f5f8ff}
+.chip[aria-pressed=true]{background:linear-gradient(135deg,#e11d48,#9b0c22);border-color:#9b0c22}
+.search:focus,.input:focus{box-shadow:0 0 0 3px #2563eb26;border-color:#2563eb}
+/* cửa sổ, chân trang */
+.modal,.rptbox{border-top:4px solid var(--son)}
+.cbm-head{background:linear-gradient(135deg,#c8102e,#7c0a1c)}
+.cr-ic{background:linear-gradient(135deg,#f5b301,#d97706);color:#fff}
+.foot{border-top:1px solid #dde4f0}
 </style>
 </head>
 <body>
@@ -1234,7 +1319,7 @@ function renderMonthly(){
   const prev=[...S].filter(x=>x.m<sel.m&&x.has).pop();
   const upto=S.filter(x=>x.m<=sel.m).reduce((a,x)=>a+x.v,0);
   let cmp='—',cc='';if(sel.has&&prev&&prev.v>0){const d=(sel.v-prev.v)/prev.v*100;cmp=(d>=0?'▲ +':'▼ ')+d.toFixed(1).replace('.',',')+'%';cc=d>=0?'up':'dn'}
-  $('#monthKpi').innerHTML=`<div style="--c:#d99a06"><small>Thu trong tháng ${sel.m}/${y}</small><b>${sel.has?money(sel.v):'Chưa có số liệu'}</b></div><div style="--c:#2f7d4f"><small>So với tháng trước${prev?' (T'+prev.m+')':''}</small><b class="${cc}">${cmp}</b></div><div style="--c:#c8282f"><small>Lũy kế từ đầu năm đến hết T${sel.m}</small><b>${money(upto)}</b></div>`;
+  $('#monthKpi').innerHTML=`<div style="--c:#2563eb"><small>Thu trong tháng ${sel.m}/${y}</small><b>${sel.has?money(sel.v):'Chưa có số liệu'}</b></div><div style="--c:#16a34a"><small>So với tháng trước${prev?' (T'+prev.m+')':''}</small><b class="${cc}">${cmp}</b></div><div style="--c:#c8282f"><small>Lũy kế từ đầu năm đến hết T${sel.m}</small><b>${money(upto)}</b></div>`;
   const n=Object.keys(monthly).length;
   $('#monthNote').textContent=n<=1?'Hệ thống bắt đầu ghi nhận từ tháng này; từ các tháng sau, số thu mỗi tháng = số lũy kế đã nộp − số lũy kế cuối tháng trước.':'Chọn tháng ở góc phải hoặc bấm vào cột. Số thu mỗi tháng = lũy kế đã nộp − lũy kế cuối tháng trước (tab “'+MONTH_TAB+'” trong Google Sheet).';
 }
@@ -1323,19 +1408,19 @@ function renderDonut(t,rate,active){
   const sc={done:0,part:0,empty:0};
   active.forEach(r=>{const c=status(r)[1];if(c==='done')sc.done++;else if(c==='partial')sc.part++;else sc.empty++});
   const mem=[
-    {l:'Đã nộp',v:t.paidCount,c:'#1e7a4c'},
-    {l:'Đã duyệt, chưa nộp',v:t.approved,c:'#c9a227'},
-    {l:'Chưa duyệt hồ sơ',v:t.pending,c:'#d98a3a'},
-    {l:'Chưa có hồ sơ',v:t.noRecord,c:'#b3261e'},
-    {l:'Miễn giảm',v:t.exempt,c:'#9ca3af'}
+    {l:'Đã nộp',v:t.paidCount,c:'#16a34a'},
+    {l:'Đã duyệt, chưa nộp',v:t.approved,c:'#2563eb'},
+    {l:'Chưa duyệt hồ sơ',v:t.pending,c:'#f59e0b'},
+    {l:'Chưa có hồ sơ',v:t.noRecord,c:'#dc2626'},
+    {l:'Miễn giảm',v:t.exempt,c:'#94a3b8'}
   ];
   const svg=$('#donutsvg');
   svg.setAttribute('aria-label',`Biểu đồ tròn: ${t.paidCount} trên ${t.due} đảng viên đã nộp, đạt ${pct(rate)}; ${sc.done} đơn vị hoàn thành, ${sc.part} đang thu, ${sc.empty} chưa phát sinh`);
   svg.innerHTML=`<circle cx="110" cy="110" r="94" fill="none" stroke="#eceef1" stroke-width="18"/><circle cx="110" cy="110" r="70" fill="none" stroke="#f3f4f6" stroke-width="10"/>`+
-   `<circle cx="110" cy="110" r="106" fill="none" stroke="#c9a227" stroke-opacity=".45" stroke-width=".8" stroke-dasharray="1.5 4"/><circle cx="110" cy="110" r="58" fill="#f8f9fa"/>`+
-   `<g class="spin">${ring(94,18,mem)}</g><g class="spin">${ring(70,10,[{v:sc.done,c:'#1e7a4c'},{v:sc.part,c:'#c9a227'},{v:sc.empty,c:'#d9dce1'}])}</g>`;
+   `<circle cx="110" cy="110" r="106" fill="none" stroke="#e0b43a" stroke-opacity=".6" stroke-width=".8" stroke-dasharray="1.5 4"/><circle cx="110" cy="110" r="58" fill="#f8f9fa"/>`+
+   `<g class="spin">${ring(94,18,mem)}</g><g class="spin">${ring(70,10,[{v:sc.done,c:'#16a34a'},{v:sc.part,c:'#f59e0b'},{v:sc.empty,c:'#cbd5e1'}])}</g>`;
   const rows=mem.filter(m=>m.v>0).map(m=>`<div style="--c:${m.c}"><span>${m.l}</span><b>${num(m.v)}</b></div>`).join('')||'<div style="--c:#d9dce1"><span>Chưa có số liệu</span><b>0</b></div>';
-  $('#dlegend').innerHTML=`<div class="dgroup"><p>Đảng viên, vòng ngoài</p>${rows}</div><div class="dgroup"><p>Đơn vị, vòng trong</p><div style="--c:#1e7a4c"><span>Hoàn thành</span><b>${sc.done}</b></div><div style="--c:#c9a227"><span>Đang thu</span><b>${sc.part}</b></div><div style="--c:#d9dce1"><span>Chưa phát sinh</span><b>${sc.empty}</b></div></div>`;
+  $('#dlegend').innerHTML=`<div class="dgroup"><p>Đảng viên, vòng ngoài</p>${rows}</div><div class="dgroup"><p>Đơn vị, vòng trong</p><div style="--c:#16a34a"><span>Hoàn thành</span><b>${sc.done}</b></div><div style="--c:#c9a227"><span>Đang thu</span><b>${sc.part}</b></div><div style="--c:#d9dce1"><span>Chưa phát sinh</span><b>${sc.empty}</b></div></div>`;
 }
 function growDonut(){
   $$('#donutsvg .seg').forEach(c=>{const L=Number(c.dataset.len),go=()=>{c.style.strokeDasharray=`${L} ${100-L}`};resetTo(c,'strokeDasharray','0 100');if(REDUCED)go();else requestAnimationFrame(()=>requestAnimationFrame(go))});
@@ -1387,10 +1472,10 @@ function render(){
   $('#colchart').setAttribute('aria-label',`Biểu đồ cột tiến độ thu đảng phí của ${n} đơn vị, ${done} đơn vị nộp đủ`);
   $('#colchart').innerHTML=units.map((r,i)=>{const p=Math.max(0,Math.min(1,v(r,'progress')));return `<div class="col" title="${esc(nm(r))}: ${pct(v(r,'progress'))} · ${v(r,'paidCount')}/${v(r,'due')} đảng viên đã nộp · ${money(v(r,'paid'))}"><div class="cb ${cls(r)}" data-h="${p*100}" style="--i:${i}"><i class="t3"></i><i class="s3"></i><em>${Math.round(p*100)}%</em></div></div>`}).join('');
   $('#colnames').innerHTML='';
-  $('#chartlegend').innerHTML=[['Đã hoàn thành','#1e7a4c'],['Đang thu','#b8921f'],['Chưa phát sinh','#d1d5db']].map(([l,c])=>`<span style="--c:${c}">${l}</span>`).join('');
+  $('#chartlegend').innerHTML=[['Đã hoàn thành','#16a34a'],['Đang thu','#f59e0b'],['Chưa phát sinh','#cbd5e1']].map(([l,c])=>`<span style="--c:${c}">${l}</span>`).join('');
 
   // split by status
-  const groups=[['Đã hoàn thành','#1e7a4c'],['Đang thu','#b8921f'],['Chưa phát sinh','#9ca3af']].map(([l,c])=>({l,c,n:0}));
+  const groups=[['Đã hoàn thành','#16a34a'],['Đang thu','#f59e0b'],['Chưa phát sinh','#cbd5e1']].map(([l,c])=>({l,c,n:0}));
   active.forEach(r=>{const s=status(r)[0];const g=groups.find(x=>x.l===s);if(g)g.n++});
   $('#split').setAttribute('aria-label',groups.map(g=>`${g.n} ${g.l.toLowerCase()}`).join(', '));
   $('#split').innerHTML=groups.filter(g=>g.n).map(g=>`<i style="flex:${g.n};background:${g.c}" title="${g.l}: ${g.n}"></i>`).join('');
