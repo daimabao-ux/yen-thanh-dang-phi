@@ -1155,7 +1155,7 @@ const state={filter:'all',sort:{k:'rank',dir:1},played:false};
 const SHEET_EP_DEFAULT='https://script.google.com/macros/s/AKfycbyDJxQWv3T9ESqRZAPYhyP-HyKEIgJa3oxiYmG4qcs-RR-ha9gZb1374VxhAm3iWq_W/exec';// dán URL Web App /exec ở đây để mọi người mở trang đều đọc từ Google Sheet
 function sheetEndpoint(){let e='';try{e=localStorage.getItem('tt_endpoint')||''}catch(_){}const r=normEndpoint(SHEET_EP_DEFAULT||e);return r.url||null}
 function jsonp(url,ms){return new Promise((res,rej)=>{const cb='__tt_'+Date.now()+Math.random().toString(36).slice(2),sc=document.createElement('script');let ok=false;
-  const fin=(e,v)=>{clearTimeout(tm);delete window[cb];sc.remove();e?rej(e):res(v)};const tm=setTimeout(()=>fin(new Error('timeout')),ms||12000);
+  const fin=(e,v)=>{clearTimeout(tm);delete window[cb];sc.remove();e?rej(e):res(v)};const tm=setTimeout(()=>fin(new Error('timeout')),ms||8000);
   window[cb]=d=>{ok=true;fin(null,d)};sc.onerror=()=>fin(new Error('load'));sc.src=url+(url.includes('?')?'&':'?')+'callback='+cb+'&t='+Date.now();document.head.appendChild(sc)})}
 const nkey=x=>String(x||'').toLocaleLowerCase('vi').replace(/[^\p{L}\p{N}]+/gu,'');
 let liveUnits=[],viewKey=null,msnap={};try{msnap=JSON.parse(localStorage.getItem('tt_msnap')||'{}')||{}}catch(_){}
@@ -1286,7 +1286,7 @@ function start(){
   if(hasEp&&cached&&Array.isArray(cached.headers)&&applySheet({ok:true,headers:cached.headers,rows:cached.rows,lastSync:cached.lastSync})){dataSrc='cache'}
   else{dataSrc=hasEp?'loading':'backup';if(hasEp)setLoading(true);else showBackupNote(true)}
   render();
-  const guard=dataSrc==='loading'?setTimeout(()=>{if(dataSrc==='loading'){dataSrc='backup';setLoading(false);showBackupNote(true);render()}},10000):0;
+  const guard=dataSrc==='loading'?setTimeout(()=>{if(dataSrc==='loading'){dataSrc='backup';setLoading(false);showBackupNote(true);render()}},5000):0;
   loadFromSheet().then(()=>{clearTimeout(guard);if(dataSrc!=='sheet'){setLoading(false);if(dataSrc==='backup')showBackupNote(true)}render();syncMonthly()});
   const tick=()=>{if(document.hidden)return;const before=sigOf(liveUnits);loadFromSheet().then(x=>{if(x.state==='ok'&&sigOf(liveUnits)!==before)render()})};
   setInterval(tick,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
@@ -1742,7 +1742,7 @@ $('#saveEndpoint').onclick=()=>{
 $('#testBtn').onclick=async()=>{
   const url=checkEndpoint();if(!url){toast('Nhập URL Web App đúng dạng trước.');return}
   epChip('Đang kiểm tra…','wait');epMsg('');
-  const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),12000);
+  const ctl=new AbortController(),tm=setTimeout(()=>ctl.abort(),8000);
   try{
     await fetch(url+'?t='+Date.now(),{mode:'no-cors',signal:ctl.signal});
     clearTimeout(tm);epChip('Truy cập được','ok');epMsg('Địa chỉ Web App phản hồi. Chưa thể xác nhận quyền ghi, hãy thử gửi và kiểm tra Google Sheet.','ok');
