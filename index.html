@@ -857,7 +857,9 @@ th{background:#f8fafc;letter-spacing:.06em}
 body{background:linear-gradient(180deg,#fff1ee 0,#f6f3fb 280px,#eef3fb 640px,#eef3fb 100%) fixed}
 .bar::before{height:4px;background:linear-gradient(90deg,#c8102e 0,#e11d48 35%,#f5b301 100%)}
 .bar{box-shadow:0 8px 24px -16px #c8102e66}
-.brand b{background:linear-gradient(90deg,#9b0c22,#c8102e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+/* Tăng cỡ tên Đảng bộ, bảo đảm dấu tiếng Việt — đặc biệt dấu sắc chữ Ấ */
+.brand b{font-size:18px;line-height:1.45;letter-spacing:.025em;padding:2px 0 4px;display:block;overflow:visible;background:linear-gradient(90deg,#9b0c22,#c8102e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+@media(max-width:1023px){.brand b{font-size:15px;line-height:1.5;letter-spacing:.01em;padding:2px 0 4px;white-space:normal}}
 .tab[aria-current=page]{background:linear-gradient(135deg,#fff,#fff1f2);box-shadow:0 2px 8px #c8102e24;color:var(--son-d)}
 .tab[aria-current=page] svg{color:var(--son)}
 .tab:hover{background:#fff4f4}
